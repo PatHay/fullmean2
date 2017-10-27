@@ -1,0 +1,36 @@
+<h1>BID NOW!</h1>
+
+<h3>
+  <a [routerLink]="['/']" (click)="logout()">Logout</a>
+</h3>
+
+<div *ngFor="let x of products" class="products">
+  <p>{{x.name}}</p>
+  <form #myForm1='ngForm' (submit)="onSubmit(x._id)">
+    <input type="number" name="bid1" [(ngModel)]="newBid.bid" required #bid1="ngModel">
+    <div *ngIf="!bid1.valid && !bid1.pristine">Bid cannot be blank!</div>
+    <button type="submit" value="submit" [hidden]="!myForm1.valid">Bid</button>
+    <br>
+  </form>
+
+  <div *ngIf="x.name == 'Product 1'" class="bids">
+    <h3>Current Bids</h3>
+    <p *ngFor="let bids of answer1">{{ bids.user }} ${{ bids.bid }}</p>
+    <input name="term1" [formControl]="term1" placeholder="Enter your appt search">
+  </div>
+
+  <div *ngIf="x.name == 'Product 2'" class="bids">
+      <h3>Current Bids</h3>
+    <p *ngFor="let bids of answer2">{{ bids.user }} ${{ bids.bid }}</p>
+    <input name="term2" [formControl]="term2" placeholder="Enter your appt search">
+  </div>
+
+  <div *ngIf="x.name == 'Product 3'" class="bids">
+      <h3>Current Bids</h3>
+    <p *ngFor="let bids of answer3">{{ bids.user }} ${{ bids.bid }}</p>
+    <input name="term3" [formControl]="term3" placeholder="Enter your appt search">
+  </div>
+</div>
+
+
+<button (click)="hello()">End Bid</button>

@@ -1,0 +1,9 @@
+.bids{
+    outline: 1px solid black;
+    width: 100px;
+}
+.products{
+    display: inline-block;
+    outline: 2px solid black;
+    margin: 20px;
+}

@@ -1,0 +1,28 @@
+<h1>{{ user }} ended the bid.</h1>
+<h2>Highest Bidder per Product</h2>
+
+<h3>
+  <a [routerLink]="['/']" (click)="logout()">Logout</a>
+</h3>
+
+<div *ngFor="let x of products" class="products">
+  <p>{{x.name}}</p>
+
+  <div *ngIf="x.name == 'Product 1'" class="bids">
+    <h3>Current Bids</h3>
+    <p>{{ maxbid1.user }} ${{ maxbid1.bid }}</p>
+  </div>
+
+  <div *ngIf="x.name == 'Product 2'" class="bids">
+      <h3>Current Bids</h3>
+      <p>{{ maxbid2.user }} ${{ maxbid2.bid }}</p>
+  </div>
+
+  <div *ngIf="x.name == 'Product 3'" class="bids">
+      <h3>Current Bids</h3>
+      <p>{{ maxbid3.user }} ${{ maxbid3.bid }}</p>
+  </div>
+</div>
+
+
+<button (click)="hello()">End Bid</button>
